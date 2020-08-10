@@ -9,6 +9,7 @@ class HistoryRouter {
 // 注入vue实例
 class VueRouter {
   constructor(options) {
+    // this.$options.router里的key
     this.mode = options.mode || 'hash'
     this.routes = options.routes || []
     this.routesMap = this.createMap(this.routes)
@@ -50,7 +51,7 @@ VueRouter.install = (vue) => {
   VueRouter.install.installed = true
   vue.mixin({
     beforeCreate() {
-      console.log("i am mixin",this)
+      // console.log("i am mixin",this)
       // main -> app.vue -> 组件
       if(this.$options && this.$options.router){   // 在这一段只有main.js会执行    //  $options = export default 里的选项
         this._root = this
@@ -60,6 +61,7 @@ VueRouter.install = (vue) => {
         // app.vue._root -> main._root
         // 组件._root -> app.vue._root -> main._root
         // 即每个组件的._root始终指向根实例._root
+        console.log(this)
         this._root = this.$parent._root || this.$root
       }
       // this.$route this.$router
@@ -80,7 +82,7 @@ VueRouter.install = (vue) => {
   // current监视 -> current变量一变渲染 -> render获取到current是什么 -> 对应current组件
   vue.component('router-view',{
     render(h){
-      console.log(this._self._root._router.history)
+      // console.log(this._self._root._router.history)
       let current = this._self._root._router.history.current
       let routerMap = this._self._root._router.routesMap
       return h(routerMap[current])

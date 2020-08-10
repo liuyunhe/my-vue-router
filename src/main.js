@@ -32,7 +32,7 @@ a.install = function (vue) {
 
 new Vue({
   el: '#app',
-  router,
+  router,    // this.&options.router
   components: { App },
   template: '<App/>'
 })
