@@ -60,7 +60,7 @@ VueRouter.install = (vue) => {
         // app.vue._root -> main._root
         // 组件._root -> app.vue._root -> main._root
         // 即每个组件的._root始终指向根实例._root
-        this._root = this.$parent._root
+        this._root = this.$parent._root || this.$root
       }
       // this.$route this.$router
       // 变量权限思路

@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>Test</h1>
+    <h1 @click="aaa">Test</h1>
   </div>
 </template>
 
@@ -10,6 +10,12 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods:{
+    aaa(){
+      this._root.current.current = "/"
+      location.hash = '/'
     }
   }
 }
