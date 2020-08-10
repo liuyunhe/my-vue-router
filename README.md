@@ -1,6 +1,6 @@
-# my-project
+# my-router
 
-> A Vue.js project
+> A router for vue which can replace vue-router and can be expanded for your needs
 
 ## Build Setup
 
